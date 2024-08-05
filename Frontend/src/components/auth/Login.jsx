@@ -38,8 +38,6 @@ const Login = () => {
     formData.append("email", input.email);
     formData.append("password", input.password);
     formData.append("role", input.role);
-    const uri = USER_API_ENDPOINTS + '/login';
-    console.log(uri);
     try {
       dispatch(setLoading(true));
       const response = await axios.post(`${USER_API_ENDPOINTS}/login`, input, {
@@ -48,7 +46,6 @@ const Login = () => {
         },
         withCredentials: true,
       });
-      console.log(response);
       if (response.data.success === true) {
         dispatch(setUser(response.data.user));
         navigate("/");
@@ -57,7 +54,6 @@ const Login = () => {
     } catch (error) {
       console.log("Some error occurred in form submission", error);
       toast.error(error.response?.data?.message);
-      console.log(error);
     } finally {
       dispatch(setLoading(false));
     }

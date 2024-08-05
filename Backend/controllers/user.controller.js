@@ -79,8 +79,6 @@ export const login = async (req, res) => {
       role: user.role,
       profile: user.profile,
     };
-    console.log("In user controller, and user is :", user);
-    console.log("IN user controller and token is :", token);
     return res
       .status(200)
       .cookie("token", token, {

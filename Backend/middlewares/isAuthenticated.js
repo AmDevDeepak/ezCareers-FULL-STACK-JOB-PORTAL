@@ -11,17 +11,14 @@ const isAuthenticated = async (req, res, next) => {
         message: "User not authenticated",
         success: false,
       });
-    console.log("Token from cookie:", token);
     const decode = jwt.verify(token, SECRET_KEY);
     if (!decode)
       return res.status(403).json({
         message: "Invalid token",
         success: false,
       });
-    console.log('Inside middleware');
     req.id = decode.userId;
     next();
-    console.log("In middleware...User authenticated.......");
   } catch (error) {
     console.log("Some error occurred at authenticate middleware.", error);
   }
