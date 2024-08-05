@@ -70,7 +70,7 @@ export const login = async (req, res) => {
       });
 
     const tokenData = { userId: user._id };
-    const token = await jwt.sign(tokenData, SECRET_KEY, { expiresIn: "1d" });
+    const token = jwt.sign(tokenData, SECRET_KEY, { expiresIn: "1d" });
     user = {
       _id: user._id,
       fullname: user.fullname,
@@ -79,15 +79,15 @@ export const login = async (req, res) => {
       role: user.role,
       profile: user.profile,
     };
-    console.log("In user controller:", user);
-    console.log("IN user controller:", token);
+    console.log("In user controller, and user is :", user);
+    console.log("IN user controller and token is :", token);
     return res
       .status(200)
       .cookie("token", token, {
         maxAge: 1 * 24 * 60 * 60 * 1000,
         secure: NODE_ENV === "production",
         httpOnly: true,
-        sameSite: "strict",
+        sameSite: "None",
       })
       .json({
         message: `Logged in successfully. Welcome ${user.fullname}`,
@@ -111,52 +111,6 @@ export const logout = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
-
-/*
-export const updateProfile = async (req, res) => {
-  try {
-    let { fullname, phoneNumber, email, bio, skills } = req.body;
-    const userId = req.id;
-    const file = req.file;
-
-    //Cloudinary setup
-    const fileUri = getDataUri(file);
-    const cloudinaryResult = await cloudinary.uploader.upload(fileUri.content);
-
-    let updateData = {};
-    if (fullname) updateData.fullname = fullname;
-    if (phoneNumber) updateData.phoneNumber = phoneNumber;
-    if (email) updateData.email = email;
-    if (bio) updateData["profile.bio"] = bio;
-    if (skills) {
-      let skillsArray = skills.split(",");
-      updateData["profile.skills"] = skillsArray;
-    }
-    if (cloudinaryResult) {
-      updateData["profile.resume"] = cloudinaryResult.secure_url;
-      updateData["profile.resumeOriginalName"] = file.originalname;
-    }
-
-    let user = await User.findByIdAndUpdate(userId, updateData, { new: true });
-
-    await user.save();
-    user = {
-      _id: user._id,
-      fullname: user.fullname,
-      email: user.email,
-      phoneNumber: user.phoneNumber,
-      role: user.role,
-      profile: user.profile,
-    };
-    return res
-      .status(200)
-      .json({ message: "Profile updated successfully", user, success: true });
-  } catch (error) {
-    console.log("Some error occurred in user controller", error);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
-  }
-};
-*/
 
 export const updateProfile = async (req, res) => {
   try {

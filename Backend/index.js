@@ -14,15 +14,15 @@ const app = express();
 // Middlewares
 app.use(cookieParser());
 app.use(express.json());
+app.use(
+  cors({
+    //origin: "http://localhost:5173",
+    origin: "https://ezcareers-frontend.onrender.com",
+    credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  })
+);
 app.use(express.urlencoded({ extended: true }));
-
-const corsOptions = {
-  origin: "https://ezcareers-frontend.onrender.com",
-  //origin: "http://localhost:5173",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-};
-app.use(cors(corsOptions));
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/company", companyRouter);
