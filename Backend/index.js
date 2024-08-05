@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "https://ezcareersfrontend-amdevdeepaks-projects.vercel.app",
+  origin: "https://ezcareers-frontend.onrender.com",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
