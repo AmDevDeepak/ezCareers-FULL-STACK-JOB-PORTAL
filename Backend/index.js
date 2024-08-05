@@ -12,12 +12,13 @@ const PORT = config.PORT;
 const app = express();
 
 // Middlewares
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 const corsOptions = {
   origin: "https://ezcareers-frontend.onrender.com",
+  //origin: "http://localhost:5173",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };

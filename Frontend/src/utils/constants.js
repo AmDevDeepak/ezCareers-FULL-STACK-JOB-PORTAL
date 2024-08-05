@@ -1,15 +1,15 @@
 // API endpoints
-// export const USER_API_ENDPOINTS = "http://localhost:3000/api/v1/user";
-// export const JOB_API_ENDPOINTS = "http://localhost:3000/api/v1/job";
-// export const APPLICATION_API_ENDPOINTS =
-//   "http://localhost:3000/api/v1/application";
-// export const COMPANY_API_ENDPOINTS = "http://localhost:3000/api/v1/company";
+export const USER_API_ENDPOINTS = "http://localhost:3000/api/v1/user";
+export const JOB_API_ENDPOINTS = "http://localhost:3000/api/v1/job";
+export const APPLICATION_API_ENDPOINTS =
+  "http://localhost:3000/api/v1/application";
+export const COMPANY_API_ENDPOINTS = "http://localhost:3000/api/v1/company";
 
-const baseUrl = "https://ezcareers-backend.onrender.com";
-export const USER_API_ENDPOINTS = `${baseUrl}/api/v1/user`;
-export const JOB_API_ENDPOINTS = `${baseUrl}/api/v1/job`;
-export const APPLICATION_API_ENDPOINTS = `${baseUrl}/api/v1/application`;
-export const COMPANY_API_ENDPOINTS = `${baseUrl}/api/v1/company`;
+// const baseUrl = "https://ezcareers-backend.onrender.com";
+// export const USER_API_ENDPOINTS = `${baseUrl}/api/v1/user`;
+// export const JOB_API_ENDPOINTS = `${baseUrl}/api/v1/job`;
+// export const APPLICATION_API_ENDPOINTS = `${baseUrl}/api/v1/application`;
+// export const COMPANY_API_ENDPOINTS = `${baseUrl}/api/v1/company`;
 
 export const categories = [
   { id: 0, value: "MERN Stack Developer" },

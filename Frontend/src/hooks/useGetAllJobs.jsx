@@ -12,9 +12,7 @@ const useGetAllJobs = () => {
       try {
         const response = await axios.get(
           `${JOB_API_ENDPOINTS}/get?keyword=${searchedQueryHeroSection}`,
-          {
-            withCredentials: true,
-          }
+          { withCredentials: true }
         );
         if (response.data.success) {
           dispatch(setAllJobs(response.data.jobs));
