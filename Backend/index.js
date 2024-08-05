@@ -8,7 +8,7 @@ import companyRouter from "./routes/company.route.js";
 import jobRouter from "./routes/job.route.js";
 import applicationRouter from "./routes/application.route.js";
 
-const PORT = process.env.PORT || config.PORT;
+const PORT = config.PORT;
 const app = express();
 
 // Middlewares
