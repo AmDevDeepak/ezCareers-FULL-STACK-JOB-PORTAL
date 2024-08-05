@@ -5,7 +5,7 @@ const { SECRET_KEY } = config;
 const isAuthenticated = async (req, res, next) => {
   try {
     const token = req.cookies.token;
-    console.log(req.cookies);
+    console.log("Here is the req cookies : ", req.cookies);
     if (!token) 
       return res.status(401).json({
         message: "User not authenticated",
@@ -18,6 +18,7 @@ const isAuthenticated = async (req, res, next) => {
         message: "Invalid token",
         success: false,
       });
+    console.log('Inside middleware');
     req.id = decode.userId;
     next();
     console.log("In middleware...User authenticated.......");
