@@ -7,15 +7,17 @@ import userRouter from "./routes/user.route.js";
 import companyRouter from "./routes/company.route.js";
 import jobRouter from "./routes/job.route.js";
 import applicationRouter from "./routes/application.route.js";
-const { PORT } = config;
+
+const PORT = process.env.PORT || config.PORT;
 const app = express();
 
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://ezcareersfrontend-amdevdeepaks-projects.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };

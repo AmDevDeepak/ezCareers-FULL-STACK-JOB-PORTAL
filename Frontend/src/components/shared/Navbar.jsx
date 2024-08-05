@@ -32,7 +32,7 @@ const Navbar = () => {
   };
   const { user } = useSelector((store) => store.auth);
   return (
-    <div className="top-0 flex items-center justify-between mx-auto max-w-[90rem] py-8  text-[#121212]">
+    <div className="flex items-center justify-between mx-auto max-w-[90rem] py-8 text-[#121212] md:px-10">
       <div>
         <Link to="/">
           <h1 className="text-4xl font-bold tracking-tight">
